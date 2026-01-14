@@ -2,7 +2,16 @@
 import React from 'react';
 
 const Pricing: React.FC = () => {
-  const handleCheckout = () => {
+  const handleCheckout = (e: React.MouseEvent | React.KeyboardEvent) => {
+    // Interrompe a propagação no nível do React
+    e.stopPropagation();
+    
+    // Interrompe a propagação no nível nativo do DOM para ser ainda mais agressivo 
+    // contra scripts de rastreamento que monitoram o document ou window.
+    if ('nativeEvent' in e && (e.nativeEvent as any).stopImmediatePropagation) {
+      (e.nativeEvent as any).stopImmediatePropagation();
+    }
+    
     // Link oficial fornecido pelo usuário
     const checkoutBaseUrl = 'https://pay.wiapy.com/ce7wD2YjiO';
     
@@ -13,7 +22,11 @@ const Pricing: React.FC = () => {
     console.log('Evento enviado: InitiateCheckout');
     const fbq = (window as any).fbq;
     if (fbq) {
-      fbq('track', 'InitiateCheckout');
+      try {
+        fbq('track', 'InitiateCheckout');
+      } catch (err) {
+        console.error('Erro ao disparar evento fbq:', err);
+      }
     }
     
     // Concatena a URL de checkout com os parâmetros
@@ -24,6 +37,12 @@ const Pricing: React.FC = () => {
 
     // Abre em uma nova aba conforme solicitado
     window.open(finalUrl, '_blank');
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleCheckout(e);
+    }
   };
 
   return (
@@ -50,7 +69,7 @@ const Pricing: React.FC = () => {
           <div className="flex flex-col items-center justify-center mb-8 md:mb-10 group cursor-default">
             <div className="flex items-start">
               <span className="text-2xl md:text-4xl font-black text-[#00703C] mt-4 md:mt-6 mr-1">R$</span>
-              <span className="text-7xl sm:text-8xl md:text-[10rem] font-black text-[#00703C] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-500">14</span>
+              <span className="text-7xl sm:text-8xl md:text-[10rem] font-black text-[#00703C] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-500">18</span>
               <div className="flex flex-col items-start mt-4 md:mt-8">
                 <span className="text-4xl md:text-6xl font-black text-[#00703C] leading-none">,90</span>
                 <span className="text-gray-400 font-bold text-xs md:text-sm uppercase mt-1">à vista</span>
@@ -61,13 +80,16 @@ const Pricing: React.FC = () => {
             </div>
           </div>
 
-          <button 
+          <div 
+            role="button"
+            tabIndex={0}
             onClick={handleCheckout}
-            className="w-full bg-gradient-to-r from-[#00703C] to-[#009250] hover:from-[#009250] hover:to-[#00703C] text-white font-black text-lg md:text-2xl py-5 md:py-7 rounded-2xl md:rounded-3xl shadow-[0_10px_25px_-5px_rgba(0,112,60,0.4)] transition-all transform active:scale-95 hover:-translate-y-1 mb-8 md:mb-10 flex flex-col items-center justify-center gap-1"
+            onKeyDown={handleKeyDown}
+            className="w-full bg-gradient-to-r from-[#00703C] to-[#009250] hover:from-[#009250] hover:to-[#00703C] text-white font-black text-lg md:text-2xl py-5 md:py-7 rounded-2xl md:rounded-3xl shadow-[0_10px_25px_-5px_rgba(0,112,60,0.4)] transition-all transform active:scale-95 hover:-translate-y-1 mb-8 md:mb-10 flex flex-col items-center justify-center gap-1 cursor-pointer outline-none focus:ring-4 focus:ring-[#00703C]/30 select-none"
           >
             <span>QUERO ACESSO VITALÍCIO</span>
             <span className="text-[8px] md:text-[10px] opacity-70 font-bold tracking-[0.1em] md:tracking-[0.2em]">PAGAMENTO ÚNICO - SEM MENSALIDADES</span>
-          </button>
+          </div>
 
           <div className="pt-6 md:pt-8 border-t border-gray-100">
             <div className="flex justify-center items-center gap-4 md:gap-6 flex-wrap mb-6 md:mb-8">

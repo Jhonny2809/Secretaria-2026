@@ -64,9 +64,9 @@ const Hero: React.FC = () => {
             <div className="p-8 bg-white min-h-[500px]">
               <div className="flex justify-between items-center mb-6 border-b border-gray-100 pb-2">
                  <div className="flex gap-4">
-                    <button className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2">Tipo <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></button>
-                    <button className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2">Pessoas <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></button>
-                    <button className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2">Modificado <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></button>
+                    <div className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2 cursor-default select-none">Tipo <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></div>
+                    <div className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2 cursor-default select-none">Pessoas <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></div>
+                    <div className="px-4 py-1.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 flex items-center gap-2 cursor-default select-none">Modificado <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg></div>
                  </div>
               </div>
 
