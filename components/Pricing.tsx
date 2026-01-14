@@ -69,9 +69,9 @@ const Pricing: React.FC = () => {
           <div className="flex flex-col items-center justify-center mb-8 md:mb-10 group cursor-default">
             <div className="flex items-start">
               <span className="text-2xl md:text-4xl font-black text-[#00703C] mt-4 md:mt-6 mr-1">R$</span>
-              <span className="text-7xl sm:text-8xl md:text-[10rem] font-black text-[#00703C] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-500">18</span>
+              <span className="text-7xl sm:text-8xl md:text-[10rem] font-black text-[#00703C] tracking-tighter leading-none group-hover:scale-105 transition-transform duration-500">17</span>
               <div className="flex flex-col items-start mt-4 md:mt-8">
-                <span className="text-4xl md:text-6xl font-black text-[#00703C] leading-none">,90</span>
+                <span className="text-4xl md:text-6xl font-black text-[#00703C] leading-none">,00</span>
                 <span className="text-gray-400 font-bold text-xs md:text-sm uppercase mt-1">à vista</span>
               </div>
             </div>
